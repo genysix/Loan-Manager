@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=purple>
+    <title>Genysix</title>
+    <link rel=stylesheet href=css/framework7.ios.min.css>
+    <link rel=stylesheet href=css/app.css> </head>
+
+<body>
+    <div id=mySidenav style=z-index:10000 class=sidenav> <a href=javascript:void(0) class=closebtn onclick=closeNav()>&times;</a>
+        <div class=cont2>
+            <div class=input2>
+                <input class=addInput id=amis placeholder="Username"> </div>
+            <div class=input2>
+                <input class=addInput type=number min=0 id=Montant placeholder=Amount> </div>
+            <div class=input2>
+                <input class=addInput type=date id=Date placeholder=Date> </div>
+            <select name=monnaie id=typeMonnaie>
+                <option value=Money disabled selected=selected>Money</option>
+            </select>
+            <br>
+            <input type=radio checked=checked name=rb id=preter value="0" />
+            <label for=preter>To lend</label>
+            <input type=radio name=rb id=emprunter value=1 />
+            <label for=emprunter>Borrow</label><br>
+            <button id=envoyer onclick=addRelation() type=button>Send</button>
+        </div>
+    </div>
+    <div id=mySidenav2 style=z-index:10000 class=sidenav> <a href=javascript:void(0) class=closebtn onclick=closeNav2()>&times;</a>
+       <div class="error2"></div>
+        <div class=cont2>
+            <div class=input2>
+                <input class=addInput type="text" id="username1" placeholder="Pseudo"/> </div>
+            <div class=input2>
+                <input class=addInput type="email" id="email1" placeholder="Email"/> </div>
+            <div class=input2>
+                <input class=addInput type="password" id="password1" placeholder="Password"/> </div>
+            <div class=input2>
+                <input type="password" class=addInput id="passwordVerif" placeholder="Repeat password"/> </div>
+             <button id="register"> Register </button>
+        </div>
+    </div>
+    <section class=app style=z-index:100>
+        <div class=statusbar-overlay></div>
+        <div class=panel-overlay></div>
+        <div class="panel panel-cover panel-right">
+            <div class=content-block> <a href=# onclick='localStorage.removeItem("idUser"),document.location.href="index.html",Deconnexion()'>Deconnexion</a> </div>
+        </div>
+        <div class=addButton id=addPret>
+            <a href=# onclick=openNav() class=roundButton> <i class=label>+</i> </a>
+        </div>
+        <div class=views>
+            <div class="view view-main">
+                <div class=navbar>
+                    <div class=navbar-inner data-page=index>
+                        <div class=left>
+                            <a href=# class="icon-only link open-panel"><img alt=menu src=icon/menu.png width=25px></a>
+                        </div>
+                        <div class="center sliding">Genysix</div>
+                        <div class=right>
+                            <a href=# class="icon-only link open-panel" data-panel=right><img alt=user src=icon/user.png width=25px></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-through pages toolbar-through">
+                    <div class=page data-page=index>
+                        <div class=page-content>
+                            <p id=amis>
+                                <div class=list-block id=detailUser></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type=text/javascript src=js/framework7.min.js></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type=text/javascript src=js/app.js></script>
+    <script>
+        null == localStorage.getItem("idUser") ? $("body").append('<section class=login><div class=login__top><div class=cont><img alt=logo class=logo src=images/piggy.png width=120px></div></div><div class=login__bottom><div class="error"></div><div class=cont><div class=input><svg class=login__icon viewBox="0 0 20 20"><path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"></path></svg> <input class=login__input id=username placeholder=Username></div><div class=input><svg class=login__icon viewBox="0 0 20 20"><path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0"></path></svg> <input class=login__input id=password placeholder=Password type=password></div><button id=login type=button>Sign in</button><p class=login__signup>Don\'t have an account?<a href=# onclick=openNav2()> Sign up</a></div></div></section>') : loadinfo();
+        var myApp = new Framework7({
+                animateNavBackIcon: !0
+            }),
+            $$ = Dom7,
+            mainView = myApp.addView(".view-main", {
+                dynamicNavbar: !0,
+                domCache: !0
+            });
+    </script>
+</body>
+
+</html>
