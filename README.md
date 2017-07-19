@@ -1,4 +1,4 @@
 # Loan-Manager
 A small money loan manager between private
 
-![Alt text](http://hpics.li/9d13879 "Live demo")
+![Alt text](http://www.hostingpics.net/viewer.php?id=132124SanstitreconvertedwithClipchamp1.gif "Live demo")
